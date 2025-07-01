@@ -12,21 +12,25 @@ import {
 } from '@opentelemetry/semantic-conventions';
 import { ATTR_DEPLOYMENT_ENVIRONMENT_NAME } from '@opentelemetry/semantic-conventions/incubating';
 import winston from 'winston';
-
-const serviceName = process.env.SERVICE_NAME;
-const environment = process.env.NODE_ENV;
+import {
+  environment,
+  serviceName,
+  serviceVersion,
+  signozKey,
+  otlpEndpoint,
+} from './config.mjs';
 
 const otlpExplorer = new OTLPLogExporter({
-  url: process.env.OTEL_EXPORTER_OTLP_ENDPOINT,
+  url: otlpEndpoint,
   headers: {
-    'signoz-access-token': process.env.SIGNOZ_INGESTION_KEY,
+    'signoz-access-token': signozKey,
   },
 });
 
 const loggerProvider = new LoggerProvider({
   resource: resourceFromAttributes({
     [ATTR_SERVICE_NAME]: serviceName,
-    [ATTR_SERVICE_VERSION]: process.env.SERVICE_VERSION,
+    [ATTR_SERVICE_VERSION]: serviceVersion,
     [ATTR_DEPLOYMENT_ENVIRONMENT_NAME]: environment,
   }),
   processors: [new SimpleLogRecordProcessor(otlpExplorer)],
