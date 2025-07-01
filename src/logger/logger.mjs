@@ -13,8 +13,8 @@ import {
 import { ATTR_DEPLOYMENT_ENVIRONMENT_NAME } from '@opentelemetry/semantic-conventions/incubating';
 import winston from 'winston';
 
-const serviceName = process.env.DEPLOYMENT_ENVIRONMENT;
-const environment = process.env.DEPLOYMENT_ENVIRONMENT;
+const serviceName = process.env.SERVICE_NAME;
+const environment = process.env.NODE_ENV;
 
 const otlpExplorer = new OTLPLogExporter({
   url: process.env.OTEL_EXPORTER_OTLP_ENDPOINT,
