@@ -1,0 +1,23 @@
+{
+  "name": "chat-telemetry",
+  "version": "0.0.1",
+  "description": "Shared telemetry package for the Event-driven Chat",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edgareler/chat-telemetry.git"
+  },
+  "keywords": [
+    "opentelemetry",
+    "winston"
+  ],
+  "author": "Edgar Eler <eler@edgar.systems>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edgareler/chat-telemetry/issues"
+  },
+  "homepage": "https://github.com/edgareler/chat-telemetry#readme"
+}
