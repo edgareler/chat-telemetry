@@ -53,6 +53,7 @@ export const logger = winston.createLogger({
     environment,
   },
   transports: [
+    new winston.transports.Console(),
     new OpenTelemetryTransportV3({
       loggerProvider,
       logAttributes: {
