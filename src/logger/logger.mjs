@@ -18,7 +18,7 @@ import {
   serviceVersion,
   signozKey,
   otlpEndpoint,
-} from './config.mjs';
+} from '../config.mjs';
 
 const otlpExplorer = new OTLPLogExporter({
   url: otlpEndpoint,
